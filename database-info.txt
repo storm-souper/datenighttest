@@ -1,0 +1,1 @@
+mongodb+srv://datenightapp:caosamac1993@cluster0.bko8u.mongodb.net/datenightapp?retryWrites=true&w=majority

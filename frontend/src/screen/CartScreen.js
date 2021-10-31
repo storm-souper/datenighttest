@@ -9,7 +9,7 @@ const addToCart = (item, forceUpdate = false) => {
     if (forceUpdate) {                     
     cartItems = cartItems.map((x) => 
       x.product === existItems.product ? item : x);
-    }     
+    }      
   } else {
     cartItems = [...cartItems, item];
   }

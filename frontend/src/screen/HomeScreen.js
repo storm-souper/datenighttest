@@ -1,24 +1,15 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-underscore-dangle */
 
-import axios from "axios";
+import { getProducts } from "../api";
 import Rating from "../components/Rating";
-import { hideLoading, showLoading } from "../utils";
 
 const HomeScreen = {
   render: async () => {
-    showLoading();
-    const response = await axios({
-      url: 'http://localhost:5000/api/products',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-    hideLoading();
-    if (!response || response.statusText !== 'OK') {
-      return '<div>Error in getting data</div>';
-    }
-    const products = response.data;
+    const products = await getProducts();
+    if (products.error) {
+      return `<div class="error">${products.error}</div>`
+    };
     return `
     <ul class="products">
       ${products.map(
