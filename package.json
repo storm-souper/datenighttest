@@ -27,7 +27,7 @@
     "build": "rm -rf dest && babel backend -d dist",
     "serve": "node dist/server.js",
     "heroku-prebuild": "cd frontend && npm install --dev",
-    "heroku-postbuild": "npm run build && cd frontend && npm install && webpack -p --config ./webpack.prod.config.js --progress"
+    "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build"
   },
   "engine": {
     "node": "14.17.6",
